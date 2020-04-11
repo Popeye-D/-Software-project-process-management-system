@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dsl.example.dao.ManagerDao">
+
+    <insert id="addMember" parameterType="com.alibaba.fastjson.JSONObject">
+        INSERT INTO user_pjm
+        (user_id,pjm_id,finnish_condition)
+        VALUES
+        (#{userID},#{pjmID},#{pjmCondition})
+    </insert>
+
+    <select id="countMember" resultType="Integer">
+        SELECT count(*)
+        FROM user_pjm
+    </select>
+
+    <select id="countMemberInfo" resultType="Integer">
+        SELECT count(*)
+        FROM user_pjm where user_id in (select s.id from sys_user s where username=#{username})
+    </select>
+
+    <select id="listMember" resultType="com.alibaba.fastjson.JSONObject">
+        SELECT
+            w.id                                      id,
+            w.user_id                                 userID,
+             w.nickname                               nickname,
+            w.pjm_id                                  pjmID,
+            w.finnish_condition                       pjmCondition,
+            DATE_FORMAT(w.write_time, '%Y.%m.%d %T') createTime
+        FROM user_pjm w ORDER BY w.id DESC LIMIT #{offSet}, #{pageRow}
+    </select>
+
+    <select id="getStuInfo" resultType="com.alibaba.fastjson.JSONObject">
+        SELECT
+            w.id                                      id,
+            w.user_id                                 userID,
+            w.pjm_id                                  pjmID,
+            w.finnish_condition                         pjmCondition,
+            DATE_FORMAT(w.write_time, '%Y.%m.%d %T') createTime
+        FROM user_pjm w  where w.user_id in (select s.id from sys_user s where username=#{username})ORDER BY w.id DESC
+
+
+    </select>
+    <!--  ORDER BY w.id DESC LIMIT #{offSet}, #{pageRow}  -->
+   <insert id="addAbsent" parameterType="com.alibaba.fastjson.JSONObject">
+           INSERT INTO absent
+           (user_id,absent_time,message)
+           VALUES
+           (#{userID},#{absenceTime},#{message})
+       </insert>
+
+       <select id="countAbsent" resultType="Integer">
+           SELECT count(*)
+           FROM absent
+       </select>
+
+       <select id="countAbsentInfo" resultType="Integer">
+           SELECT count(*)
+           FROM absent where user_id in (select s.id from sys_user s where username=#{username})
+       </select>
+
+       <select id="listAbsent" resultType="com.alibaba.fastjson.JSONObject">
+           SELECT
+               w.id                                      id,
+               w.user_id                                 userID,
+               w.nickname                               nickname,
+               w.absent_time                             absenceTime,
+               w.message                                 message
+           FROM absent w ORDER BY w.id DESC LIMIT #{offSet}, #{pageRow}
+       </select>
+
+       <select id="getAbsentInfo" resultType="com.alibaba.fastjson.JSONObject">
+           SELECT
+               w.id                                      id,
+               w.user_id                                 userID,
+                w.nickname                               nickname,
+               w.absent_time                             absenceTime,
+               w.message                                 message
+           FROM absent w  where w.user_id in (select s.id from sys_user s where username=#{username})ORDER BY w.id DESC
+
+    </select>
+
+    <update id="updateAbsent" parameterType="com.alibaba.fastjson.JSONObject">
+            UPDATE absent
+            SET
+            user_id=#{userID},absent_time=#{absenceTime},message=#{message}
+            WHERE id = #{id}
+        </update>
+
+        <delete id="deleteAbsent">
+            delete from absent where id = #{id}
+        </delete>
+
+
+    <update id="updateMember" parameterType="com.alibaba.fastjson.JSONObject">
+        UPDATE user_pjm
+        SET
+        pjm_id=#{pjmID},finnish_condition=#{pjmCondition}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteMember">
+        delete from user_pjm where id = #{id}
+    </delete>
+
+</mapper>

@@ -1,0 +1,1161 @@
+2020-04-11 08:50:07.259 INFO  --- [StartupInfoLogger.java:50][restartedMain] - Starting MyApplication on Popeye with PID 11016 (started by Administrator in C:\Users\Administrator\Desktop\毕业设计\软件过程管理系统\后端\system)
+2020-04-11 08:50:07.259 INFO  --- [SpringApplication.java:675][restartedMain] - No active profile set, falling back to default profiles: default
+2020-04-11 08:50:12.439 INFO  --- [StartupInfoLogger.java:59][restartedMain] - Started MyApplication in 5.88 seconds (JVM running for 8.559)
+2020-04-11 08:50:26.199 INFO  --- [HikariDataSource.java:110][http-nio-8080-exec-1] - HikariPool-1 - Starting...
+2020-04-11 08:50:29.301 ERROR --- [HikariPool.java:574][http-nio-8080-exec-1] - HikariPool-1 - Exception during pool initialization.
+com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:835)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:455)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:240)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:207)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:136)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:369)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:198)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:467)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:541)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:151)
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:115)
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:78)
+	at org.mybatis.spring.transaction.SpringManagedTransaction.openConnection(SpringManagedTransaction.java:82)
+	at org.mybatis.spring.transaction.SpringManagedTransaction.getConnection(SpringManagedTransaction.java:68)
+	at org.apache.ibatis.executor.BaseExecutor.getConnection(BaseExecutor.java:338)
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:84)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:62)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:326)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectOne(DefaultSqlSession.java:77)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy54.selectOne(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectOne(SqlSessionTemplate.java:166)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:83)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:59)
+	at com.sun.proxy.$Proxy55.getUser(Unknown Source)
+	at com.dsl.example.service.impl.LoginServiceImpl.getUser(LoginServiceImpl.java:55)
+	at com.dsl.example.config.shiro.UserRealm.doGetAuthenticationInfo(UserRealm.java:53)
+	at org.apache.shiro.realm.AuthenticatingRealm.getAuthenticationInfo(AuthenticatingRealm.java:571)
+	at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doSingleRealmAuthentication(ModularRealmAuthenticator.java:180)
+	at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doAuthenticate(ModularRealmAuthenticator.java:267)
+	at org.apache.shiro.authc.AbstractAuthenticator.authenticate(AbstractAuthenticator.java:198)
+	at org.apache.shiro.mgt.AuthenticatingSecurityManager.authenticate(AuthenticatingSecurityManager.java:106)
+	at org.apache.shiro.mgt.DefaultSecurityManager.login(DefaultSecurityManager.java:274)
+	at org.apache.shiro.subject.support.DelegatingSubject.login(DelegatingSubject.java:260)
+	at com.dsl.example.service.impl.LoginServiceImpl.authLogin(LoginServiceImpl.java:42)
+	at com.dsl.example.controller.LoginController.authLogin(LoginController.java:30)
+	at com.dsl.example.controller.LoginController$$FastClassBySpringCGLIB$$2aa8fb55.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:55)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.dsl.example.controller.LoginController$$EnhancerBySpringCGLIB$$7683a214.authLogin(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:215)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:142)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:998)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:901)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:875)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:387)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:770)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151)
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:91)
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:152)
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:955)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
+	... 124 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:155)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:65)
+	... 127 common frames omitted
+2020-04-11 08:50:29.315 WARN  --- [AbstractAuthenticator.java:216][http-nio-8080-exec-1] - Authentication failed for token submission [org.apache.shiro.authc.UsernamePasswordToken - admin, rememberMe=false].  Possible unexpected error? (Typical or expected login exceptions should extend from AuthenticationException).
+org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+### The error may exist in file [C:\Users\Administrator\Desktop\毕业设计\软件过程管理系统\后端\system\target\classes\mapper\LoginMapper.xml]
+### The error may involve com.dsl.example.dao.LoginDao.getUser
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:77)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:446)
+	at com.sun.proxy.$Proxy54.selectOne(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectOne(SqlSessionTemplate.java:166)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:83)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:59)
+	at com.sun.proxy.$Proxy55.getUser(Unknown Source)
+	at com.dsl.example.service.impl.LoginServiceImpl.getUser(LoginServiceImpl.java:55)
+	at com.dsl.example.config.shiro.UserRealm.doGetAuthenticationInfo(UserRealm.java:53)
+	at org.apache.shiro.realm.AuthenticatingRealm.getAuthenticationInfo(AuthenticatingRealm.java:571)
+	at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doSingleRealmAuthentication(ModularRealmAuthenticator.java:180)
+	at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doAuthenticate(ModularRealmAuthenticator.java:267)
+	at org.apache.shiro.authc.AbstractAuthenticator.authenticate(AbstractAuthenticator.java:198)
+	at org.apache.shiro.mgt.AuthenticatingSecurityManager.authenticate(AuthenticatingSecurityManager.java:106)
+	at org.apache.shiro.mgt.DefaultSecurityManager.login(DefaultSecurityManager.java:274)
+	at org.apache.shiro.subject.support.DelegatingSubject.login(DelegatingSubject.java:260)
+	at com.dsl.example.service.impl.LoginServiceImpl.authLogin(LoginServiceImpl.java:42)
+	at com.dsl.example.controller.LoginController.authLogin(LoginController.java:30)
+	at com.dsl.example.controller.LoginController$$FastClassBySpringCGLIB$$2aa8fb55.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:55)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.dsl.example.controller.LoginController$$EnhancerBySpringCGLIB$$7683a214.authLogin(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:215)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:142)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:998)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:901)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:875)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:387)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:770)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+### The error may exist in file [C:\Users\Administrator\Desktop\毕业设计\软件过程管理系统\后端\system\target\classes\mapper\LoginMapper.xml]
+### The error may involve com.dsl.example.dao.LoginDao.getUser
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:30)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:150)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectOne(DefaultSqlSession.java:77)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	... 94 common frames omitted
+Caused by: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:81)
+	at org.mybatis.spring.transaction.SpringManagedTransaction.openConnection(SpringManagedTransaction.java:82)
+	at org.mybatis.spring.transaction.SpringManagedTransaction.getConnection(SpringManagedTransaction.java:68)
+	at org.apache.ibatis.executor.BaseExecutor.getConnection(BaseExecutor.java:338)
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:84)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:62)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:326)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)
+	... 101 common frames omitted
+Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:835)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:455)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:240)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:207)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:136)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:369)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:198)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:467)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:541)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:151)
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:115)
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:78)
+	... 111 common frames omitted
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151)
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:91)
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:152)
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:955)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
+	... 124 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:155)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:65)
+	... 127 common frames omitted
+2020-04-11 08:50:29.331 ERROR --- [GlobalExceptionHandler.java:43][http-nio-8080-exec-1] - 异常
+java.lang.NullPointerException: null
+	at com.dsl.example.aspect.LoginLogAspect.afterLogin(LoginLogAspect.java:43)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:644)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:626)
+	at org.springframework.aop.aspectj.AspectJAfterReturningAdvice.afterReturning(AspectJAfterReturningAdvice.java:66)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:56)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.dsl.example.controller.LoginController$$EnhancerBySpringCGLIB$$7683a214.authLogin(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:215)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:142)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:998)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:901)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:875)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:387)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:770)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2020-04-11 08:50:29.361 WARN  --- [AbstractHandlerExceptionResolver.java:194][http-nio-8080-exec-1] - Resolved [java.lang.NullPointerException]
+2020-04-11 08:50:58.979 INFO  --- [HikariDataSource.java:110][http-nio-8080-exec-2] - HikariPool-1 - Starting...
+2020-04-11 08:50:59.066 INFO  --- [HikariDataSource.java:123][http-nio-8080-exec-2] - HikariPool-1 - Start completed.
+2020-04-11 08:50:59.075 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==>  Preparing: SELECT u.id userId, u.username username, u.password password, u.nickname nickName FROM sys_user u WHERE u.username = ? AND u.password = ? AND u.delete_status = '1' 
+2020-04-11 08:50:59.109 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==> Parameters: admin(String), 123456(String)
+2020-04-11 08:50:59.142 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - <==      Total: 1
+2020-04-11 08:50:59.148 INFO  --- [LoginLogAspect.java:46][http-nio-8080-exec-2] - admin successful login at 2020-04-11 08:50:59.148
+2020-04-11 08:50:59.176 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==>  Preparing: INSERT INTO sys_log VALUES (?,?,?,?,?,?,?) 
+2020-04-11 08:50:59.181 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==> Parameters: 0(Integer), admin(String), 2020-04-11 08:50:59.15(Timestamp), 登录(String), 执行了com.dsl.example.controller.LoginController类的authLogin方法(String), null, Popeye/192.168.240.1(String)
+2020-04-11 08:50:59.208 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - <==    Updates: 1
+2020-04-11 08:50:59.310 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - ==>  Preparing: SELECT u.id userId, u.nickname nickname, u.role_id roleId, r.role_name roleName, p.menu_code menuCode, p.permission_code permissionCode FROM sys_user u LEFT JOIN sys_role r ON r.id = u.role_id LEFT JOIN sys_role_permission rp ON u.role_id = rp.role_id LEFT JOIN sys_permission p ON rp.permission_id = p.id AND rp.delete_status = '1' WHERE u.username = ? AND u.delete_status = '1' 
+2020-04-11 08:50:59.311 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - ==> Parameters: admin(String)
+2020-04-11 08:50:59.415 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - <==      Total: 1
+2020-04-11 08:50:59.449 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - ==>  Preparing: SELECT p.menu_code menuCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 08:50:59.450 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - ==> Parameters: 
+2020-04-11 08:50:59.471 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - <==      Total: 18
+2020-04-11 08:50:59.473 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - ==>  Preparing: SELECT p.permission_code permissionCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 08:50:59.474 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - ==> Parameters: 
+2020-04-11 08:50:59.476 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - <==      Total: 18
+2020-04-11 08:52:13.696 INFO  --- [UserRealm.java:36][http-nio-8080-exec-3] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 08:52:13.697 INFO  --- [UserRealm.java:37][http-nio-8080-exec-3] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 08:52:13.705 INFO  --- [UserRealm.java:36][http-nio-8080-exec-3] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 08:52:13.705 INFO  --- [UserRealm.java:37][http-nio-8080-exec-3] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 08:52:13.728 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==>  Preparing: SELECT count(*) FROM absent 
+2020-04-11 08:52:13.729 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==> Parameters: 
+2020-04-11 08:52:13.732 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - <==      Total: 1
+2020-04-11 08:52:13.733 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==>  Preparing: SELECT w.id id, w.user_id userID, w.absent_time dormTime, w.message message FROM absent w ORDER BY w.id DESC LIMIT ?, ? 
+2020-04-11 08:52:13.734 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==> Parameters: 0(Integer), 50(Integer)
+2020-04-11 08:52:13.735 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - <==      Total: 0
+2020-04-11 08:52:13.740 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==>  Preparing: INSERT INTO sys_log VALUES (?,?,?,?,?,?,?) 
+2020-04-11 08:52:13.741 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==> Parameters: 0(Integer), admin(String), 2020-04-11 08:52:13.737(Timestamp), 缺寝列表点击(String), 执行了com.dsl.example.controller.ManagerController类的listAbsent方法(String), SELECT
+               w.id                                      id,
+               w.user_id                                 userID,
+               w.absent_time                            dormTime,
+               w.message                                 message
+           FROM absent w ORDER BY w.id DESC LIMIT ?, ?(String), Popeye/192.168.240.1(String)
+2020-04-11 08:52:13.762 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - <==    Updates: 1
+2020-04-11 08:52:17.496 INFO  --- [UserRealm.java:36][http-nio-8080-exec-5] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 08:52:17.497 INFO  --- [UserRealm.java:37][http-nio-8080-exec-5] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 08:52:17.499 INFO  --- [UserRealm.java:36][http-nio-8080-exec-5] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 08:52:17.500 INFO  --- [UserRealm.java:37][http-nio-8080-exec-5] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 08:52:17.505 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - ==>  Preparing: SELECT count(*) FROM absent 
+2020-04-11 08:52:17.508 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - ==> Parameters: 
+2020-04-11 08:52:17.510 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - <==      Total: 1
+2020-04-11 08:52:17.511 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - ==>  Preparing: SELECT w.id id, w.user_id userID, w.absent_time dormTime, w.message message FROM absent w ORDER BY w.id DESC LIMIT ?, ? 
+2020-04-11 08:52:17.513 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - ==> Parameters: 0(Integer), 50(Integer)
+2020-04-11 08:52:17.517 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - <==      Total: 0
+2020-04-11 08:52:17.520 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - ==>  Preparing: INSERT INTO sys_log VALUES (?,?,?,?,?,?,?) 
+2020-04-11 08:52:17.522 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - ==> Parameters: 0(Integer), admin(String), 2020-04-11 08:52:17.519(Timestamp), 缺寝列表点击(String), 执行了com.dsl.example.controller.ManagerController类的listAbsent方法(String), SELECT
+               w.id                                      id,
+               w.user_id                                 userID,
+               w.absent_time                            dormTime,
+               w.message                                 message
+           FROM absent w ORDER BY w.id DESC LIMIT ?, ?(String), Popeye/192.168.240.1(String)
+2020-04-11 08:52:17.524 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - <==    Updates: 1
+2020-04-11 08:52:41.319 INFO  --- [UserRealm.java:36][http-nio-8080-exec-6] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 08:52:41.320 INFO  --- [UserRealm.java:37][http-nio-8080-exec-6] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 08:52:41.321 INFO  --- [UserRealm.java:36][http-nio-8080-exec-6] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 08:52:41.322 INFO  --- [UserRealm.java:37][http-nio-8080-exec-6] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 08:52:41.324 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - ==>  Preparing: SELECT count(*) FROM absent 
+2020-04-11 08:52:41.325 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - ==> Parameters: 
+2020-04-11 08:52:41.328 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - <==      Total: 1
+2020-04-11 08:52:41.329 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - ==>  Preparing: SELECT w.id id, w.user_id userID, w.absent_time dormTime, w.message message FROM absent w ORDER BY w.id DESC LIMIT ?, ? 
+2020-04-11 08:52:41.331 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - ==> Parameters: 0(Integer), 50(Integer)
+2020-04-11 08:52:41.332 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - <==      Total: 0
+2020-04-11 08:52:41.335 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - ==>  Preparing: INSERT INTO sys_log VALUES (?,?,?,?,?,?,?) 
+2020-04-11 08:52:41.337 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - ==> Parameters: 0(Integer), admin(String), 2020-04-11 08:52:41.333(Timestamp), 缺寝列表点击(String), 执行了com.dsl.example.controller.ManagerController类的listAbsent方法(String), SELECT
+               w.id                                      id,
+               w.user_id                                 userID,
+               w.absent_time                            dormTime,
+               w.message                                 message
+           FROM absent w ORDER BY w.id DESC LIMIT ?, ?(String), Popeye/192.168.240.1(String)
+2020-04-11 08:52:41.368 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - <==    Updates: 1
+2020-04-11 09:02:28.610 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - ==>  Preparing: SELECT u.id userId, u.nickname nickname, u.role_id roleId, r.role_name roleName, p.menu_code menuCode, p.permission_code permissionCode FROM sys_user u LEFT JOIN sys_role r ON r.id = u.role_id LEFT JOIN sys_role_permission rp ON u.role_id = rp.role_id LEFT JOIN sys_permission p ON rp.permission_id = p.id AND rp.delete_status = '1' WHERE u.username = ? AND u.delete_status = '1' 
+2020-04-11 09:02:28.612 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - ==> Parameters: admin(String)
+2020-04-11 09:02:28.616 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - <==      Total: 1
+2020-04-11 09:02:28.617 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - ==>  Preparing: SELECT p.menu_code menuCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 09:02:28.619 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - ==> Parameters: 
+2020-04-11 09:02:28.623 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - <==      Total: 18
+2020-04-11 09:02:28.626 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - ==>  Preparing: SELECT p.permission_code permissionCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 09:02:28.627 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - ==> Parameters: 
+2020-04-11 09:02:28.631 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - <==      Total: 18
+2020-04-11 09:02:32.487 INFO  --- [UserRealm.java:36][http-nio-8080-exec-8] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 09:02:32.488 INFO  --- [UserRealm.java:37][http-nio-8080-exec-8] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 09:02:32.489 INFO  --- [UserRealm.java:36][http-nio-8080-exec-8] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 09:02:32.490 INFO  --- [UserRealm.java:37][http-nio-8080-exec-8] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 09:02:32.492 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - ==>  Preparing: SELECT count(*) FROM absent 
+2020-04-11 09:02:32.493 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - ==> Parameters: 
+2020-04-11 09:02:32.495 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - <==      Total: 1
+2020-04-11 09:02:32.497 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - ==>  Preparing: SELECT w.id id, w.user_id userID, w.absent_time dormTime, w.message message FROM absent w ORDER BY w.id DESC LIMIT ?, ? 
+2020-04-11 09:02:32.499 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - ==> Parameters: 0(Integer), 50(Integer)
+2020-04-11 09:02:32.504 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - <==      Total: 1
+2020-04-11 09:02:32.508 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - ==>  Preparing: INSERT INTO sys_log VALUES (?,?,?,?,?,?,?) 
+2020-04-11 09:02:32.511 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - ==> Parameters: 0(Integer), admin(String), 2020-04-11 09:02:32.506(Timestamp), 缺寝列表点击(String), 执行了com.dsl.example.controller.ManagerController类的listAbsent方法(String), SELECT
+               w.id                                      id,
+               w.user_id                                 userID,
+               w.absent_time                            dormTime,
+               w.message                                 message
+           FROM absent w ORDER BY w.id DESC LIMIT ?, ?(String), Popeye/192.168.240.1(String)
+2020-04-11 09:02:32.513 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - <==    Updates: 1
+2020-04-11 09:04:25.288 INFO  --- [UserRealm.java:36][http-nio-8080-exec-9] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 09:04:25.290 INFO  --- [UserRealm.java:37][http-nio-8080-exec-9] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 09:04:25.293 INFO  --- [UserRealm.java:36][http-nio-8080-exec-9] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 09:04:25.294 INFO  --- [UserRealm.java:37][http-nio-8080-exec-9] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 09:04:25.297 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - ==>  Preparing: SELECT count(*) FROM absent 
+2020-04-11 09:04:25.299 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - ==> Parameters: 
+2020-04-11 09:04:25.303 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - <==      Total: 1
+2020-04-11 09:04:25.306 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - ==>  Preparing: SELECT w.id id, w.user_id userID, w.absent_time dormTime, w.message message FROM absent w ORDER BY w.id DESC LIMIT ?, ? 
+2020-04-11 09:04:25.306 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - ==> Parameters: 0(Integer), 50(Integer)
+2020-04-11 09:04:25.308 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - <==      Total: 1
+2020-04-11 09:04:25.311 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - ==>  Preparing: INSERT INTO sys_log VALUES (?,?,?,?,?,?,?) 
+2020-04-11 09:04:25.313 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - ==> Parameters: 0(Integer), admin(String), 2020-04-11 09:04:25.309(Timestamp), 缺寝列表点击(String), 执行了com.dsl.example.controller.ManagerController类的listAbsent方法(String), SELECT
+               w.id                                      id,
+               w.user_id                                 userID,
+               w.absent_time                            dormTime,
+               w.message                                 message
+           FROM absent w ORDER BY w.id DESC LIMIT ?, ?(String), Popeye/192.168.240.1(String)
+2020-04-11 09:04:25.360 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - <==    Updates: 1
+2020-04-11 09:16:54.571 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - ==>  Preparing: SELECT u.id userId, u.nickname nickname, u.role_id roleId, r.role_name roleName, p.menu_code menuCode, p.permission_code permissionCode FROM sys_user u LEFT JOIN sys_role r ON r.id = u.role_id LEFT JOIN sys_role_permission rp ON u.role_id = rp.role_id LEFT JOIN sys_permission p ON rp.permission_id = p.id AND rp.delete_status = '1' WHERE u.username = ? AND u.delete_status = '1' 
+2020-04-11 09:16:54.573 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - ==> Parameters: admin(String)
+2020-04-11 09:16:54.596 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - <==      Total: 1
+2020-04-11 09:16:54.598 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - ==>  Preparing: SELECT p.menu_code menuCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 09:16:54.599 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - ==> Parameters: 
+2020-04-11 09:16:54.616 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - <==      Total: 18
+2020-04-11 09:16:54.618 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - ==>  Preparing: SELECT p.permission_code permissionCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 09:16:54.619 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - ==> Parameters: 
+2020-04-11 09:16:54.621 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - <==      Total: 18
+2020-04-11 09:16:55.063 INFO  --- [UserRealm.java:36][http-nio-8080-exec-1] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 09:16:55.064 INFO  --- [UserRealm.java:37][http-nio-8080-exec-1] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 09:16:55.067 INFO  --- [UserRealm.java:36][http-nio-8080-exec-1] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 09:16:55.067 INFO  --- [UserRealm.java:37][http-nio-8080-exec-1] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 09:16:55.069 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-1] - ==>  Preparing: SELECT count(*) FROM absent 
+2020-04-11 09:16:55.070 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-1] - ==> Parameters: 
+2020-04-11 09:16:55.072 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-1] - <==      Total: 1
+2020-04-11 09:16:55.073 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-1] - ==>  Preparing: SELECT w.id id, w.user_id userID, w.absent_time dormTime, w.message message FROM absent w ORDER BY w.id DESC LIMIT ?, ? 
+2020-04-11 09:16:55.074 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-1] - ==> Parameters: 0(Integer), 50(Integer)
+2020-04-11 09:16:55.076 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-1] - <==      Total: 1
+2020-04-11 09:16:55.080 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-1] - ==>  Preparing: INSERT INTO sys_log VALUES (?,?,?,?,?,?,?) 
+2020-04-11 09:16:55.083 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-1] - ==> Parameters: 0(Integer), admin(String), 2020-04-11 09:16:55.077(Timestamp), 缺寝列表点击(String), 执行了com.dsl.example.controller.ManagerController类的listAbsent方法(String), SELECT
+               w.id                                      id,
+               w.user_id                                 userID,
+               w.absent_time                            dormTime,
+               w.message                                 message
+           FROM absent w ORDER BY w.id DESC LIMIT ?, ?(String), Popeye/192.168.240.1(String)
+2020-04-11 09:16:55.118 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-1] - <==    Updates: 1
+2020-04-11 09:26:12.572 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==>  Preparing: SELECT u.id userId, u.nickname nickname, u.role_id roleId, r.role_name roleName, p.menu_code menuCode, p.permission_code permissionCode FROM sys_user u LEFT JOIN sys_role r ON r.id = u.role_id LEFT JOIN sys_role_permission rp ON u.role_id = rp.role_id LEFT JOIN sys_permission p ON rp.permission_id = p.id AND rp.delete_status = '1' WHERE u.username = ? AND u.delete_status = '1' 
+2020-04-11 09:26:12.575 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==> Parameters: admin(String)
+2020-04-11 09:26:12.582 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - <==      Total: 1
+2020-04-11 09:26:12.584 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==>  Preparing: SELECT p.menu_code menuCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 09:26:12.585 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==> Parameters: 
+2020-04-11 09:26:12.588 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - <==      Total: 18
+2020-04-11 09:26:12.590 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==>  Preparing: SELECT p.permission_code permissionCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 09:26:12.591 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==> Parameters: 
+2020-04-11 09:26:12.594 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - <==      Total: 18
+2020-04-11 09:26:13.042 INFO  --- [UserRealm.java:36][http-nio-8080-exec-4] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 09:26:13.043 INFO  --- [UserRealm.java:37][http-nio-8080-exec-4] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 09:26:13.046 INFO  --- [UserRealm.java:36][http-nio-8080-exec-4] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 09:26:13.046 INFO  --- [UserRealm.java:37][http-nio-8080-exec-4] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 09:26:13.054 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - ==>  Preparing: SELECT count(*) FROM absent 
+2020-04-11 09:26:13.056 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - ==> Parameters: 
+2020-04-11 09:26:13.058 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - <==      Total: 1
+2020-04-11 09:26:13.060 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - ==>  Preparing: SELECT w.id id, w.user_id userID, w.absent_time dormTime, w.message message FROM absent w ORDER BY w.id DESC LIMIT ?, ? 
+2020-04-11 09:26:13.061 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - ==> Parameters: 0(Integer), 50(Integer)
+2020-04-11 09:26:13.064 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - <==      Total: 1
+2020-04-11 09:26:13.069 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - ==>  Preparing: INSERT INTO sys_log VALUES (?,?,?,?,?,?,?) 
+2020-04-11 09:26:13.072 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - ==> Parameters: 0(Integer), admin(String), 2020-04-11 09:26:13.066(Timestamp), 缺寝列表点击(String), 执行了com.dsl.example.controller.ManagerController类的listAbsent方法(String), SELECT
+               w.id                                      id,
+               w.user_id                                 userID,
+               w.absent_time                            dormTime,
+               w.message                                 message
+           FROM absent w ORDER BY w.id DESC LIMIT ?, ?(String), Popeye/192.168.240.1(String)
+2020-04-11 09:26:13.087 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - <==    Updates: 1
+2020-04-11 09:48:47.724 INFO  --- [UserRealm.java:36][http-nio-8080-exec-3] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 09:48:47.725 INFO  --- [UserRealm.java:37][http-nio-8080-exec-3] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 09:48:47.727 INFO  --- [UserRealm.java:36][http-nio-8080-exec-3] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 09:48:47.729 INFO  --- [UserRealm.java:37][http-nio-8080-exec-3] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 09:48:47.732 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==>  Preparing: SELECT count(*) FROM absent 
+2020-04-11 09:48:47.733 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==> Parameters: 
+2020-04-11 09:48:47.736 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - <==      Total: 1
+2020-04-11 09:48:47.738 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==>  Preparing: SELECT w.id id, w.user_id userID, w.absent_time dormTime, w.message message FROM absent w ORDER BY w.id DESC LIMIT ?, ? 
+2020-04-11 09:48:47.739 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==> Parameters: 0(Integer), 50(Integer)
+2020-04-11 09:48:47.755 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - <==      Total: 1
+2020-04-11 09:48:47.759 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==>  Preparing: INSERT INTO sys_log VALUES (?,?,?,?,?,?,?) 
+2020-04-11 09:48:47.760 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==> Parameters: 0(Integer), admin(String), 2020-04-11 09:48:47.756(Timestamp), 缺寝列表点击(String), 执行了com.dsl.example.controller.ManagerController类的listAbsent方法(String), SELECT
+               w.id                                      id,
+               w.user_id                                 userID,
+               w.absent_time                            dormTime,
+               w.message                                 message
+           FROM absent w ORDER BY w.id DESC LIMIT ?, ?(String), Popeye/192.168.240.1(String)
+2020-04-11 09:48:47.763 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - <==    Updates: 1
+2020-04-11 09:53:00.028 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - ==>  Preparing: SELECT u.id userId, u.nickname nickname, u.role_id roleId, r.role_name roleName, p.menu_code menuCode, p.permission_code permissionCode FROM sys_user u LEFT JOIN sys_role r ON r.id = u.role_id LEFT JOIN sys_role_permission rp ON u.role_id = rp.role_id LEFT JOIN sys_permission p ON rp.permission_id = p.id AND rp.delete_status = '1' WHERE u.username = ? AND u.delete_status = '1' 
+2020-04-11 09:53:00.031 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - ==> Parameters: admin(String)
+2020-04-11 09:53:00.036 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - <==      Total: 1
+2020-04-11 09:53:00.037 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - ==>  Preparing: SELECT p.menu_code menuCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 09:53:00.038 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - ==> Parameters: 
+2020-04-11 09:53:00.042 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - <==      Total: 18
+2020-04-11 09:53:00.044 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - ==>  Preparing: SELECT p.permission_code permissionCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 09:53:00.045 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - ==> Parameters: 
+2020-04-11 09:53:00.049 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - <==      Total: 18
+2020-04-11 09:53:00.755 INFO  --- [UserRealm.java:36][http-nio-8080-exec-6] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 09:53:00.756 INFO  --- [UserRealm.java:37][http-nio-8080-exec-6] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 09:53:00.758 INFO  --- [UserRealm.java:36][http-nio-8080-exec-6] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 09:53:00.759 INFO  --- [UserRealm.java:37][http-nio-8080-exec-6] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 09:53:00.763 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - ==>  Preparing: SELECT count(*) FROM absent 
+2020-04-11 09:53:00.764 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - ==> Parameters: 
+2020-04-11 09:53:00.767 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - <==      Total: 1
+2020-04-11 09:53:00.769 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - ==>  Preparing: SELECT w.id id, w.user_id userID, w.absent_time dormTime, w.message message FROM absent w ORDER BY w.id DESC LIMIT ?, ? 
+2020-04-11 09:53:00.771 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - ==> Parameters: 0(Integer), 50(Integer)
+2020-04-11 09:53:00.774 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - <==      Total: 1
+2020-04-11 09:53:00.779 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - ==>  Preparing: INSERT INTO sys_log VALUES (?,?,?,?,?,?,?) 
+2020-04-11 09:53:00.782 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - ==> Parameters: 0(Integer), admin(String), 2020-04-11 09:53:00.775(Timestamp), 缺寝列表点击(String), 执行了com.dsl.example.controller.ManagerController类的listAbsent方法(String), SELECT
+               w.id                                      id,
+               w.user_id                                 userID,
+               w.absent_time                            dormTime,
+               w.message                                 message
+           FROM absent w ORDER BY w.id DESC LIMIT ?, ?(String), Popeye/192.168.240.1(String)
+2020-04-11 09:53:00.784 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - <==    Updates: 1
+2020-04-11 09:59:23.077 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - ==>  Preparing: SELECT u.id userId, u.nickname nickname, u.role_id roleId, r.role_name roleName, p.menu_code menuCode, p.permission_code permissionCode FROM sys_user u LEFT JOIN sys_role r ON r.id = u.role_id LEFT JOIN sys_role_permission rp ON u.role_id = rp.role_id LEFT JOIN sys_permission p ON rp.permission_id = p.id AND rp.delete_status = '1' WHERE u.username = ? AND u.delete_status = '1' 
+2020-04-11 09:59:23.078 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - ==> Parameters: admin(String)
+2020-04-11 09:59:23.082 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - <==      Total: 1
+2020-04-11 09:59:23.084 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - ==>  Preparing: SELECT p.menu_code menuCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 09:59:23.086 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - ==> Parameters: 
+2020-04-11 09:59:23.090 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - <==      Total: 18
+2020-04-11 09:59:23.093 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - ==>  Preparing: SELECT p.permission_code permissionCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 09:59:23.094 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - ==> Parameters: 
+2020-04-11 09:59:23.099 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - <==      Total: 18
+2020-04-11 09:59:37.096 INFO  --- [UserRealm.java:36][http-nio-8080-exec-8] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 09:59:37.098 INFO  --- [UserRealm.java:37][http-nio-8080-exec-8] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 09:59:37.099 INFO  --- [UserRealm.java:36][http-nio-8080-exec-9] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 09:59:37.102 INFO  --- [UserRealm.java:37][http-nio-8080-exec-9] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 09:59:37.122 INFO  --- [UserRealm.java:36][http-nio-8080-exec-9] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 09:59:37.123 INFO  --- [UserRealm.java:37][http-nio-8080-exec-9] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 09:59:37.122 INFO  --- [UserRealm.java:36][http-nio-8080-exec-8] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 09:59:37.126 INFO  --- [UserRealm.java:37][http-nio-8080-exec-8] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 09:59:37.159 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - ==>  Preparing: SELECT p.id id, p.menu_name menuName, p.permission_name permissionName, p.required_permission requiredPerm FROM sys_permission p; 
+2020-04-11 09:59:37.159 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - ==>  Preparing: SELECT r.id roleId, r.role_name roleName, u.id userId, u.nickname nickname, p.id permissionId, p.menu_code menuCode, p.menu_name menuName, p.permission_name permissionName FROM sys_role r LEFT JOIN sys_user u ON r.id = u.role_id AND u.delete_status = '1' LEFT JOIN sys_role_permission rp ON r.id = rp.role_id AND rp.delete_status = '1' LEFT JOIN sys_permission p ON rp.permission_id = p.id WHERE r.delete_status = '1' ORDER BY r.id, p.id 
+2020-04-11 09:59:37.160 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - ==> Parameters: 
+2020-04-11 09:59:37.160 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - ==> Parameters: 
+2020-04-11 09:59:37.169 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - <==      Total: 18
+2020-04-11 09:59:37.173 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - ==>  Preparing: INSERT INTO sys_log VALUES (?,?,?,?,?,?,?) 
+2020-04-11 09:59:37.173 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - <==      Total: 20
+2020-04-11 09:59:37.174 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - ==> Parameters: 0(Integer), admin(String), 2020-04-11 09:59:37.17(Timestamp), 角色权限表显示(String), 执行了com.dsl.example.controller.UserController类的listRole方法(String), SELECT
+            p.id                  id,
+            p.menu_name           menuName,
+            p.permission_name     permissionName,
+            p.required_permission requiredPerm
+        FROM sys_permission p;(String), Popeye/192.168.240.1(String)
+2020-04-11 09:59:37.175 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - ==>  Preparing: INSERT INTO sys_log VALUES (?,?,?,?,?,?,?) 
+2020-04-11 09:59:37.177 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - ==> Parameters: 0(Integer), admin(String), 2020-04-11 09:59:37.174(Timestamp), 角色列表点击(String), 执行了com.dsl.example.controller.UserController类的listRole方法(String), SELECT
+            r.id              roleId,
+            r.role_name       roleName,
+            u.id              userId,
+            u.nickname        nickname,
+            p.id              permissionId,
+            p.menu_code       menuCode,
+            p.menu_name       menuName,
+            p.permission_name permissionName
+        FROM sys_role r
+            LEFT JOIN sys_user u ON r.id = u.role_id AND u.delete_status = '1'
+            LEFT JOIN sys_role_permission rp ON r.id = rp.role_id AND rp.delete_status = '1'
+            LEFT JOIN sys_permission p ON rp.permission_id = p.id
+        WHERE r.delete_status = '1'
+        ORDER BY r.id, p.id(String), Popeye/192.168.240.1(String)
+2020-04-11 09:59:37.197 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - <==    Updates: 1
+2020-04-11 09:59:37.198 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - <==    Updates: 1
+2020-04-11 09:59:56.094 INFO  --- [UserRealm.java:36][http-nio-8080-exec-10] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 09:59:56.095 INFO  --- [UserRealm.java:37][http-nio-8080-exec-10] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 09:59:56.097 INFO  --- [UserRealm.java:36][http-nio-8080-exec-10] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 09:59:56.097 INFO  --- [UserRealm.java:37][http-nio-8080-exec-10] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 09:59:56.100 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - ==>  Preparing: SELECT r.id roleId, r.role_name roleName, u.id userId, p.id permissionId FROM sys_role r LEFT JOIN sys_user u ON r.id = u.role_id AND u.delete_status = '1' LEFT JOIN sys_role_permission rp ON r.id = rp.role_id AND rp.delete_status = '1' LEFT JOIN sys_permission p ON rp.permission_id = p.id WHERE r.id = ? 
+2020-04-11 09:59:56.100 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - ==> Parameters: 2(Integer)
+2020-04-11 09:59:56.104 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - <==      Total: 17
+2020-04-11 09:59:56.108 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - ==>  Preparing: INSERT INTO sys_log VALUES (?,?,?,?,?,?,?) 
+2020-04-11 09:59:56.109 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - ==> Parameters: 0(Integer), admin(String), 2020-04-11 09:59:56.106(Timestamp), 更新角色操作(String), 执行了com.dsl.example.controller.UserController类的updateRole方法(String), UPDATE sys_role
+        SET
+            role_name = ?
+        WHERE id = ?(String), Popeye/192.168.240.1(String)
+2020-04-11 09:59:56.110 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - <==    Updates: 1
+2020-04-11 09:59:56.293 INFO  --- [UserRealm.java:36][http-nio-8080-exec-1] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 09:59:56.294 INFO  --- [UserRealm.java:37][http-nio-8080-exec-1] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 09:59:56.297 INFO  --- [UserRealm.java:36][http-nio-8080-exec-1] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 09:59:56.298 INFO  --- [UserRealm.java:37][http-nio-8080-exec-1] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 09:59:56.302 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-1] - ==>  Preparing: SELECT r.id roleId, r.role_name roleName, u.id userId, u.nickname nickname, p.id permissionId, p.menu_code menuCode, p.menu_name menuName, p.permission_name permissionName FROM sys_role r LEFT JOIN sys_user u ON r.id = u.role_id AND u.delete_status = '1' LEFT JOIN sys_role_permission rp ON r.id = rp.role_id AND rp.delete_status = '1' LEFT JOIN sys_permission p ON rp.permission_id = p.id WHERE r.delete_status = '1' ORDER BY r.id, p.id 
+2020-04-11 09:59:56.303 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-1] - ==> Parameters: 
+2020-04-11 09:59:56.315 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-1] - <==      Total: 20
+2020-04-11 09:59:56.319 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-1] - ==>  Preparing: INSERT INTO sys_log VALUES (?,?,?,?,?,?,?) 
+2020-04-11 09:59:56.322 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-1] - ==> Parameters: 0(Integer), admin(String), 2020-04-11 09:59:56.316(Timestamp), 角色列表点击(String), 执行了com.dsl.example.controller.UserController类的listRole方法(String), SELECT
+            r.id              roleId,
+            r.role_name       roleName,
+            u.id              userId,
+            u.nickname        nickname,
+            p.id              permissionId,
+            p.menu_code       menuCode,
+            p.menu_name       menuName,
+            p.permission_name permissionName
+        FROM sys_role r
+            LEFT JOIN sys_user u ON r.id = u.role_id AND u.delete_status = '1'
+            LEFT JOIN sys_role_permission rp ON r.id = rp.role_id AND rp.delete_status = '1'
+            LEFT JOIN sys_permission p ON rp.permission_id = p.id
+        WHERE r.delete_status = '1'
+        ORDER BY r.id, p.id(String), Popeye/192.168.240.1(String)
+2020-04-11 09:59:56.324 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-1] - <==    Updates: 1
+2020-04-11 10:03:42.821 INFO  --- [UserRealm.java:36][http-nio-8080-exec-2] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 10:03:42.822 INFO  --- [UserRealm.java:37][http-nio-8080-exec-2] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 10:03:42.824 INFO  --- [UserRealm.java:36][http-nio-8080-exec-2] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 10:03:42.824 INFO  --- [UserRealm.java:37][http-nio-8080-exec-2] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 10:03:42.827 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==>  Preparing: SELECT count(*) FROM absent 
+2020-04-11 10:03:42.828 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==> Parameters: 
+2020-04-11 10:03:42.830 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - <==      Total: 1
+2020-04-11 10:03:42.833 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==>  Preparing: SELECT w.id id, w.user_id userID, w.absent_time dormTime, w.message message FROM absent w ORDER BY w.id DESC LIMIT ?, ? 
+2020-04-11 10:03:42.835 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==> Parameters: 0(Integer), 50(Integer)
+2020-04-11 10:03:42.838 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - <==      Total: 1
+2020-04-11 10:03:42.842 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==>  Preparing: INSERT INTO sys_log VALUES (?,?,?,?,?,?,?) 
+2020-04-11 10:03:42.845 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==> Parameters: 0(Integer), admin(String), 2020-04-11 10:03:42.84(Timestamp), 缺寝列表点击(String), 执行了com.dsl.example.controller.ManagerController类的listAbsent方法(String), SELECT
+               w.id                                      id,
+               w.user_id                                 userID,
+               w.absent_time                            dormTime,
+               w.message                                 message
+           FROM absent w ORDER BY w.id DESC LIMIT ?, ?(String), Popeye/192.168.240.1(String)
+2020-04-11 10:03:42.862 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - <==    Updates: 1
+2020-04-11 10:03:55.952 INFO  --- [UserRealm.java:36][http-nio-8080-exec-4] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 10:03:55.953 INFO  --- [UserRealm.java:37][http-nio-8080-exec-4] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 10:03:55.954 INFO  --- [UserRealm.java:36][http-nio-8080-exec-4] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 10:03:55.955 INFO  --- [UserRealm.java:37][http-nio-8080-exec-4] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 10:03:55.960 WARN  --- [AbstractHandlerExceptionResolver.java:194][http-nio-8080-exec-4] - Resolved [com.dsl.example.config.exception.CommonJsonException]
+2020-04-11 10:06:32.848 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==>  Preparing: SELECT u.id userId, u.nickname nickname, u.role_id roleId, r.role_name roleName, p.menu_code menuCode, p.permission_code permissionCode FROM sys_user u LEFT JOIN sys_role r ON r.id = u.role_id LEFT JOIN sys_role_permission rp ON u.role_id = rp.role_id LEFT JOIN sys_permission p ON rp.permission_id = p.id AND rp.delete_status = '1' WHERE u.username = ? AND u.delete_status = '1' 
+2020-04-11 10:06:32.851 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==> Parameters: admin(String)
+2020-04-11 10:06:32.854 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - <==      Total: 1
+2020-04-11 10:06:32.855 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==>  Preparing: SELECT p.menu_code menuCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 10:06:32.857 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==> Parameters: 
+2020-04-11 10:06:32.859 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - <==      Total: 18
+2020-04-11 10:06:32.861 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==>  Preparing: SELECT p.permission_code permissionCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 10:06:32.862 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==> Parameters: 
+2020-04-11 10:06:32.865 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - <==      Total: 18
+2020-04-11 10:06:33.320 INFO  --- [UserRealm.java:36][http-nio-8080-exec-5] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 10:06:33.320 INFO  --- [UserRealm.java:37][http-nio-8080-exec-5] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 10:06:33.323 INFO  --- [UserRealm.java:36][http-nio-8080-exec-5] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 10:06:33.323 INFO  --- [UserRealm.java:37][http-nio-8080-exec-5] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 10:06:33.325 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - ==>  Preparing: SELECT count(*) FROM absent 
+2020-04-11 10:06:33.328 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - ==> Parameters: 
+2020-04-11 10:06:33.330 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - <==      Total: 1
+2020-04-11 10:06:33.331 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - ==>  Preparing: SELECT w.id id, w.user_id userID, w.absent_time dormTime, w.message message FROM absent w ORDER BY w.id DESC LIMIT ?, ? 
+2020-04-11 10:06:33.332 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - ==> Parameters: 0(Integer), 50(Integer)
+2020-04-11 10:06:33.335 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - <==      Total: 1
+2020-04-11 10:06:33.339 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - ==>  Preparing: INSERT INTO sys_log VALUES (?,?,?,?,?,?,?) 
+2020-04-11 10:06:33.344 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - ==> Parameters: 0(Integer), admin(String), 2020-04-11 10:06:33.336(Timestamp), 缺寝列表点击(String), 执行了com.dsl.example.controller.ManagerController类的listAbsent方法(String), SELECT
+               w.id                                      id,
+               w.user_id                                 userID,
+               w.absent_time                            dormTime,
+               w.message                                 message
+           FROM absent w ORDER BY w.id DESC LIMIT ?, ?(String), Popeye/192.168.240.1(String)
+2020-04-11 10:06:33.363 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - <==    Updates: 1
+2020-04-11 10:07:20.385 INFO  --- [UserRealm.java:36][http-nio-8080-exec-6] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 10:07:20.386 INFO  --- [UserRealm.java:37][http-nio-8080-exec-6] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 10:07:20.388 INFO  --- [UserRealm.java:36][http-nio-8080-exec-6] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 10:07:20.389 INFO  --- [UserRealm.java:37][http-nio-8080-exec-6] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 10:07:20.391 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - ==>  Preparing: SELECT count(*) FROM absent 
+2020-04-11 10:07:20.393 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - ==> Parameters: 
+2020-04-11 10:07:20.395 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - <==      Total: 1
+2020-04-11 10:07:20.397 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - ==>  Preparing: SELECT w.id id, w.user_id userID, w.absent_time dormTime, w.message message FROM absent w ORDER BY w.id DESC LIMIT ?, ? 
+2020-04-11 10:07:20.398 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - ==> Parameters: 0(Integer), 50(Integer)
+2020-04-11 10:07:20.400 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - <==      Total: 1
+2020-04-11 10:07:20.403 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - ==>  Preparing: INSERT INTO sys_log VALUES (?,?,?,?,?,?,?) 
+2020-04-11 10:07:20.405 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - ==> Parameters: 0(Integer), admin(String), 2020-04-11 10:07:20.401(Timestamp), 缺寝列表点击(String), 执行了com.dsl.example.controller.ManagerController类的listAbsent方法(String), SELECT
+               w.id                                      id,
+               w.user_id                                 userID,
+               w.absent_time                            dormTime,
+               w.message                                 message
+           FROM absent w ORDER BY w.id DESC LIMIT ?, ?(String), Popeye/192.168.240.1(String)
+2020-04-11 10:07:20.441 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - <==    Updates: 1
+2020-04-11 10:08:05.134 INFO  --- [UserRealm.java:36][http-nio-8080-exec-7] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 10:08:05.135 INFO  --- [UserRealm.java:37][http-nio-8080-exec-7] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 10:08:05.137 INFO  --- [UserRealm.java:36][http-nio-8080-exec-7] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 10:08:05.138 INFO  --- [UserRealm.java:37][http-nio-8080-exec-7] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 10:08:05.141 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - ==>  Preparing: SELECT count(*) FROM absent 
+2020-04-11 10:08:05.143 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - ==> Parameters: 
+2020-04-11 10:08:05.145 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - <==      Total: 1
+2020-04-11 10:08:05.147 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - ==>  Preparing: SELECT w.id id, w.user_id userID, w.absent_time dormTime, w.message message FROM absent w ORDER BY w.id DESC LIMIT ?, ? 
+2020-04-11 10:08:05.148 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - ==> Parameters: 0(Integer), 50(Integer)
+2020-04-11 10:08:05.151 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - <==      Total: 1
+2020-04-11 10:08:05.155 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - ==>  Preparing: INSERT INTO sys_log VALUES (?,?,?,?,?,?,?) 
+2020-04-11 10:08:05.156 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - ==> Parameters: 0(Integer), admin(String), 2020-04-11 10:08:05.153(Timestamp), 缺寝列表点击(String), 执行了com.dsl.example.controller.ManagerController类的listAbsent方法(String), SELECT
+               w.id                                      id,
+               w.user_id                                 userID,
+               w.absent_time                            dormTime,
+               w.message                                 message
+           FROM absent w ORDER BY w.id DESC LIMIT ?, ?(String), Popeye/192.168.240.1(String)
+2020-04-11 10:08:05.162 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - <==    Updates: 1
+2020-04-11 10:09:48.710 INFO  --- [UserRealm.java:36][http-nio-8080-exec-9] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 10:09:48.711 INFO  --- [UserRealm.java:37][http-nio-8080-exec-9] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 10:09:48.713 INFO  --- [UserRealm.java:36][http-nio-8080-exec-9] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 10:09:48.714 INFO  --- [UserRealm.java:37][http-nio-8080-exec-9] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 10:09:48.719 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - ==>  Preparing: SELECT count(*) FROM absent 
+2020-04-11 10:09:48.721 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - ==> Parameters: 
+2020-04-11 10:09:48.723 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - <==      Total: 1
+2020-04-11 10:09:48.725 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - ==>  Preparing: SELECT w.id id, w.user_id userID, w.absent_time dormTime, w.message message FROM absent w ORDER BY w.id DESC LIMIT ?, ? 
+2020-04-11 10:09:48.726 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - ==> Parameters: 0(Integer), 50(Integer)
+2020-04-11 10:09:48.728 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - <==      Total: 1
+2020-04-11 10:09:48.732 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - ==>  Preparing: INSERT INTO sys_log VALUES (?,?,?,?,?,?,?) 
+2020-04-11 10:09:48.734 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - ==> Parameters: 0(Integer), admin(String), 2020-04-11 10:09:48.729(Timestamp), 缺寝列表点击(String), 执行了com.dsl.example.controller.ManagerController类的listAbsent方法(String), SELECT
+               w.id                                      id,
+               w.user_id                                 userID,
+               w.absent_time                            dormTime,
+               w.message                                 message
+           FROM absent w ORDER BY w.id DESC LIMIT ?, ?(String), Popeye/192.168.240.1(String)
+2020-04-11 10:09:48.737 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - <==    Updates: 1
+2020-04-11 10:11:49.673 INFO  --- [UserRealm.java:36][http-nio-8080-exec-8] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 10:11:49.674 INFO  --- [UserRealm.java:37][http-nio-8080-exec-8] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 10:11:49.675 INFO  --- [UserRealm.java:36][http-nio-8080-exec-8] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 10:11:49.676 INFO  --- [UserRealm.java:37][http-nio-8080-exec-8] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 10:11:49.678 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - ==>  Preparing: SELECT count(*) FROM absent 
+2020-04-11 10:11:49.679 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - ==> Parameters: 
+2020-04-11 10:11:49.682 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - <==      Total: 1
+2020-04-11 10:11:49.684 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - ==>  Preparing: SELECT w.id id, w.user_id userID, w.absent_time dormTime, w.message message FROM absent w ORDER BY w.id DESC LIMIT ?, ? 
+2020-04-11 10:11:49.685 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - ==> Parameters: 0(Integer), 50(Integer)
+2020-04-11 10:11:49.687 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - <==      Total: 1
+2020-04-11 10:11:49.692 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - ==>  Preparing: INSERT INTO sys_log VALUES (?,?,?,?,?,?,?) 
+2020-04-11 10:11:49.694 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - ==> Parameters: 0(Integer), admin(String), 2020-04-11 10:11:49.689(Timestamp), 缺寝列表点击(String), 执行了com.dsl.example.controller.ManagerController类的listAbsent方法(String), SELECT
+               w.id                                      id,
+               w.user_id                                 userID,
+               w.absent_time                            dormTime,
+               w.message                                 message
+           FROM absent w ORDER BY w.id DESC LIMIT ?, ?(String), Popeye/192.168.240.1(String)
+2020-04-11 10:11:49.696 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - <==    Updates: 1
+2020-04-11 10:16:21.772 INFO  --- [UserRealm.java:36][http-nio-8080-exec-10] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 10:16:21.777 INFO  --- [UserRealm.java:37][http-nio-8080-exec-10] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 10:16:21.779 INFO  --- [UserRealm.java:36][http-nio-8080-exec-10] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 10:16:21.781 INFO  --- [UserRealm.java:37][http-nio-8080-exec-10] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 10:16:21.785 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - ==>  Preparing: SELECT count(*) FROM absent 
+2020-04-11 10:16:21.788 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - ==> Parameters: 
+2020-04-11 10:16:21.790 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - <==      Total: 1
+2020-04-11 10:16:21.791 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - ==>  Preparing: SELECT w.id id, w.user_id userID, w.absent_time dormTime, w.message message FROM absent w ORDER BY w.id DESC LIMIT ?, ? 
+2020-04-11 10:16:21.792 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - ==> Parameters: 0(Integer), 50(Integer)
+2020-04-11 10:16:21.795 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - <==      Total: 1
+2020-04-11 10:16:21.801 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - ==>  Preparing: INSERT INTO sys_log VALUES (?,?,?,?,?,?,?) 
+2020-04-11 10:16:21.805 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - ==> Parameters: 0(Integer), admin(String), 2020-04-11 10:16:21.798(Timestamp), 缺寝列表点击(String), 执行了com.dsl.example.controller.ManagerController类的listAbsent方法(String), SELECT
+               w.id                                      id,
+               w.user_id                                 userID,
+               w.absent_time                            dormTime,
+               w.message                                 message
+           FROM absent w ORDER BY w.id DESC LIMIT ?, ?(String), Popeye/192.168.240.1(String)
+2020-04-11 10:16:21.807 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - <==    Updates: 1
+2020-04-11 10:19:05.159 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-1] - ==>  Preparing: SELECT u.id userId, u.nickname nickname, u.role_id roleId, r.role_name roleName, p.menu_code menuCode, p.permission_code permissionCode FROM sys_user u LEFT JOIN sys_role r ON r.id = u.role_id LEFT JOIN sys_role_permission rp ON u.role_id = rp.role_id LEFT JOIN sys_permission p ON rp.permission_id = p.id AND rp.delete_status = '1' WHERE u.username = ? AND u.delete_status = '1' 
+2020-04-11 10:19:05.160 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-1] - ==> Parameters: admin(String)
+2020-04-11 10:19:05.164 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-1] - <==      Total: 1
+2020-04-11 10:19:05.165 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-1] - ==>  Preparing: SELECT p.menu_code menuCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 10:19:05.166 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-1] - ==> Parameters: 
+2020-04-11 10:19:05.168 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-1] - <==      Total: 18
+2020-04-11 10:19:05.168 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-1] - ==>  Preparing: SELECT p.permission_code permissionCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 10:19:05.169 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-1] - ==> Parameters: 
+2020-04-11 10:19:05.172 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-1] - <==      Total: 18
+2020-04-11 10:19:05.583 INFO  --- [UserRealm.java:36][http-nio-8080-exec-2] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 10:19:05.584 INFO  --- [UserRealm.java:37][http-nio-8080-exec-2] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 10:19:05.587 INFO  --- [UserRealm.java:36][http-nio-8080-exec-2] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 10:19:05.587 INFO  --- [UserRealm.java:37][http-nio-8080-exec-2] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 10:19:05.588 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==>  Preparing: SELECT count(*) FROM absent 
+2020-04-11 10:19:05.589 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==> Parameters: 
+2020-04-11 10:19:05.590 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - <==      Total: 1
+2020-04-11 10:19:05.591 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==>  Preparing: SELECT w.id id, w.user_id userID, w.absent_time dormTime, w.message message FROM absent w ORDER BY w.id DESC LIMIT ?, ? 
+2020-04-11 10:19:05.592 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==> Parameters: 0(Integer), 50(Integer)
+2020-04-11 10:19:05.595 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - <==      Total: 1
+2020-04-11 10:19:05.601 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==>  Preparing: INSERT INTO sys_log VALUES (?,?,?,?,?,?,?) 
+2020-04-11 10:19:05.602 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==> Parameters: 0(Integer), admin(String), 2020-04-11 10:19:05.597(Timestamp), 缺寝列表点击(String), 执行了com.dsl.example.controller.ManagerController类的listAbsent方法(String), SELECT
+               w.id                                      id,
+               w.user_id                                 userID,
+               w.absent_time                            dormTime,
+               w.message                                 message
+           FROM absent w ORDER BY w.id DESC LIMIT ?, ?(String), Popeye/192.168.240.1(String)
+2020-04-11 10:19:05.620 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - <==    Updates: 1
+2020-04-11 10:19:30.831 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - ==>  Preparing: SELECT u.id userId, u.nickname nickname, u.role_id roleId, r.role_name roleName, p.menu_code menuCode, p.permission_code permissionCode FROM sys_user u LEFT JOIN sys_role r ON r.id = u.role_id LEFT JOIN sys_role_permission rp ON u.role_id = rp.role_id LEFT JOIN sys_permission p ON rp.permission_id = p.id AND rp.delete_status = '1' WHERE u.username = ? AND u.delete_status = '1' 
+2020-04-11 10:19:30.833 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - ==> Parameters: admin(String)
+2020-04-11 10:19:30.836 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - <==      Total: 1
+2020-04-11 10:19:30.838 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - ==>  Preparing: SELECT p.menu_code menuCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 10:19:30.839 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - ==> Parameters: 
+2020-04-11 10:19:30.842 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - <==      Total: 18
+2020-04-11 10:19:30.844 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - ==>  Preparing: SELECT p.permission_code permissionCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 10:19:30.845 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - ==> Parameters: 
+2020-04-11 10:19:30.848 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - <==      Total: 18
+2020-04-11 10:19:31.420 INFO  --- [UserRealm.java:36][http-nio-8080-exec-3] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 10:19:31.420 INFO  --- [UserRealm.java:37][http-nio-8080-exec-3] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 10:19:31.422 INFO  --- [UserRealm.java:36][http-nio-8080-exec-3] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 10:19:31.422 INFO  --- [UserRealm.java:37][http-nio-8080-exec-3] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 10:19:31.425 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==>  Preparing: SELECT count(*) FROM absent 
+2020-04-11 10:19:31.426 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==> Parameters: 
+2020-04-11 10:19:31.427 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - <==      Total: 1
+2020-04-11 10:19:31.429 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==>  Preparing: SELECT w.id id, w.user_id userID, w.absent_time dormTime, w.message message FROM absent w ORDER BY w.id DESC LIMIT ?, ? 
+2020-04-11 10:19:31.430 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==> Parameters: 0(Integer), 50(Integer)
+2020-04-11 10:19:31.432 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - <==      Total: 1
+2020-04-11 10:19:31.435 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==>  Preparing: INSERT INTO sys_log VALUES (?,?,?,?,?,?,?) 
+2020-04-11 10:19:31.438 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==> Parameters: 0(Integer), admin(String), 2020-04-11 10:19:31.433(Timestamp), 缺寝列表点击(String), 执行了com.dsl.example.controller.ManagerController类的listAbsent方法(String), SELECT
+               w.id                                      id,
+               w.user_id                                 userID,
+               w.absent_time                            dormTime,
+               w.message                                 message
+           FROM absent w ORDER BY w.id DESC LIMIT ?, ?(String), Popeye/192.168.240.1(String)
+2020-04-11 10:19:31.439 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - <==    Updates: 1
+2020-04-11 10:20:49.546 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - ==>  Preparing: SELECT u.id userId, u.nickname nickname, u.role_id roleId, r.role_name roleName, p.menu_code menuCode, p.permission_code permissionCode FROM sys_user u LEFT JOIN sys_role r ON r.id = u.role_id LEFT JOIN sys_role_permission rp ON u.role_id = rp.role_id LEFT JOIN sys_permission p ON rp.permission_id = p.id AND rp.delete_status = '1' WHERE u.username = ? AND u.delete_status = '1' 
+2020-04-11 10:20:49.548 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - ==> Parameters: admin(String)
+2020-04-11 10:20:49.553 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - <==      Total: 1
+2020-04-11 10:20:49.555 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - ==>  Preparing: SELECT p.menu_code menuCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 10:20:49.556 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - ==> Parameters: 
+2020-04-11 10:20:49.559 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - <==      Total: 18
+2020-04-11 10:20:49.561 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - ==>  Preparing: SELECT p.permission_code permissionCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 10:20:49.562 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - ==> Parameters: 
+2020-04-11 10:20:49.565 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - <==      Total: 18
+2020-04-11 10:20:50.166 INFO  --- [UserRealm.java:36][http-nio-8080-exec-6] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 10:20:50.167 INFO  --- [UserRealm.java:37][http-nio-8080-exec-6] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 10:20:50.168 INFO  --- [UserRealm.java:36][http-nio-8080-exec-6] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 10:20:50.168 INFO  --- [UserRealm.java:37][http-nio-8080-exec-6] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 10:20:50.170 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - ==>  Preparing: SELECT count(*) FROM absent 
+2020-04-11 10:20:50.171 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - ==> Parameters: 
+2020-04-11 10:20:50.173 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - <==      Total: 1
+2020-04-11 10:20:50.174 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - ==>  Preparing: SELECT w.id id, w.user_id userID, w.absent_time dormTime, w.message message FROM absent w ORDER BY w.id DESC LIMIT ?, ? 
+2020-04-11 10:20:50.175 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - ==> Parameters: 0(Integer), 50(Integer)
+2020-04-11 10:20:50.179 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - <==      Total: 1
+2020-04-11 10:20:50.183 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - ==>  Preparing: INSERT INTO sys_log VALUES (?,?,?,?,?,?,?) 
+2020-04-11 10:20:50.185 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - ==> Parameters: 0(Integer), admin(String), 2020-04-11 10:20:50.18(Timestamp), 缺寝列表点击(String), 执行了com.dsl.example.controller.ManagerController类的listAbsent方法(String), SELECT
+               w.id                                      id,
+               w.user_id                                 userID,
+               w.absent_time                            dormTime,
+               w.message                                 message
+           FROM absent w ORDER BY w.id DESC LIMIT ?, ?(String), Popeye/192.168.240.1(String)
+2020-04-11 10:20:50.187 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - <==    Updates: 1
+2020-04-11 10:40:16.107 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - ==>  Preparing: SELECT u.id userId, u.nickname nickname, u.role_id roleId, r.role_name roleName, p.menu_code menuCode, p.permission_code permissionCode FROM sys_user u LEFT JOIN sys_role r ON r.id = u.role_id LEFT JOIN sys_role_permission rp ON u.role_id = rp.role_id LEFT JOIN sys_permission p ON rp.permission_id = p.id AND rp.delete_status = '1' WHERE u.username = ? AND u.delete_status = '1' 
+2020-04-11 10:40:16.109 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - ==> Parameters: admin(String)
+2020-04-11 10:40:16.112 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - <==      Total: 1
+2020-04-11 10:40:16.113 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - ==>  Preparing: SELECT p.menu_code menuCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 10:40:16.114 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - ==> Parameters: 
+2020-04-11 10:40:16.116 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - <==      Total: 18
+2020-04-11 10:40:16.117 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - ==>  Preparing: SELECT p.permission_code permissionCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 10:40:16.118 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - ==> Parameters: 
+2020-04-11 10:40:16.121 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-7] - <==      Total: 18
+2020-04-11 10:40:16.887 INFO  --- [UserRealm.java:36][http-nio-8080-exec-9] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 10:40:16.888 INFO  --- [UserRealm.java:37][http-nio-8080-exec-9] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 10:40:16.889 INFO  --- [UserRealm.java:36][http-nio-8080-exec-9] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 10:40:16.890 INFO  --- [UserRealm.java:37][http-nio-8080-exec-9] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 10:40:16.893 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - ==>  Preparing: SELECT count(*) FROM absent 
+2020-04-11 10:40:16.895 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - ==> Parameters: 
+2020-04-11 10:40:16.897 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - <==      Total: 1
+2020-04-11 10:40:16.899 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - ==>  Preparing: SELECT w.id id, w.user_id userID, w.absent_time dormTime, w.message message FROM absent w ORDER BY w.id DESC LIMIT ?, ? 
+2020-04-11 10:40:16.900 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - ==> Parameters: 0(Integer), 50(Integer)
+2020-04-11 10:40:16.903 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - <==      Total: 1
+2020-04-11 10:40:16.907 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - ==>  Preparing: INSERT INTO sys_log VALUES (?,?,?,?,?,?,?) 
+2020-04-11 10:40:16.909 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - ==> Parameters: 0(Integer), admin(String), 2020-04-11 10:40:16.904(Timestamp), 缺寝列表点击(String), 执行了com.dsl.example.controller.ManagerController类的listAbsent方法(String), SELECT
+               w.id                                      id,
+               w.user_id                                 userID,
+               w.absent_time                            dormTime,
+               w.message                                 message
+           FROM absent w ORDER BY w.id DESC LIMIT ?, ?(String), Popeye/192.168.240.1(String)
+2020-04-11 10:40:16.912 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - <==    Updates: 1
+2020-04-11 10:41:20.117 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - ==>  Preparing: SELECT u.id userId, u.nickname nickname, u.role_id roleId, r.role_name roleName, p.menu_code menuCode, p.permission_code permissionCode FROM sys_user u LEFT JOIN sys_role r ON r.id = u.role_id LEFT JOIN sys_role_permission rp ON u.role_id = rp.role_id LEFT JOIN sys_permission p ON rp.permission_id = p.id AND rp.delete_status = '1' WHERE u.username = ? AND u.delete_status = '1' 
+2020-04-11 10:41:20.119 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - ==> Parameters: admin(String)
+2020-04-11 10:41:20.123 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - <==      Total: 1
+2020-04-11 10:41:20.124 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - ==>  Preparing: SELECT p.menu_code menuCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 10:41:20.126 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - ==> Parameters: 
+2020-04-11 10:41:20.129 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - <==      Total: 18
+2020-04-11 10:41:20.130 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - ==>  Preparing: SELECT p.permission_code permissionCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 10:41:20.131 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - ==> Parameters: 
+2020-04-11 10:41:20.134 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - <==      Total: 18
+2020-04-11 10:41:20.603 INFO  --- [UserRealm.java:36][http-nio-8080-exec-10] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 10:41:20.604 INFO  --- [UserRealm.java:37][http-nio-8080-exec-10] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 10:41:20.605 INFO  --- [UserRealm.java:36][http-nio-8080-exec-10] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 10:41:20.606 INFO  --- [UserRealm.java:37][http-nio-8080-exec-10] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 10:41:20.608 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - ==>  Preparing: SELECT count(*) FROM absent 
+2020-04-11 10:41:20.610 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - ==> Parameters: 
+2020-04-11 10:41:20.613 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - <==      Total: 1
+2020-04-11 10:41:20.614 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - ==>  Preparing: SELECT w.id id, w.user_id userID, w.absent_time dormTime, w.message message FROM absent w ORDER BY w.id DESC LIMIT ?, ? 
+2020-04-11 10:41:20.615 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - ==> Parameters: 0(Integer), 50(Integer)
+2020-04-11 10:41:20.616 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - <==      Total: 1
+2020-04-11 10:41:20.620 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - ==>  Preparing: INSERT INTO sys_log VALUES (?,?,?,?,?,?,?) 
+2020-04-11 10:41:20.622 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - ==> Parameters: 0(Integer), admin(String), 2020-04-11 10:41:20.618(Timestamp), 缺寝列表点击(String), 执行了com.dsl.example.controller.ManagerController类的listAbsent方法(String), SELECT
+               w.id                                      id,
+               w.user_id                                 userID,
+               w.absent_time                            dormTime,
+               w.message                                 message
+           FROM absent w ORDER BY w.id DESC LIMIT ?, ?(String), Popeye/192.168.240.1(String)
+2020-04-11 10:41:20.624 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - <==    Updates: 1
+2020-04-11 10:41:48.419 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-1] - ==>  Preparing: SELECT u.id userId, u.nickname nickname, u.role_id roleId, r.role_name roleName, p.menu_code menuCode, p.permission_code permissionCode FROM sys_user u LEFT JOIN sys_role r ON r.id = u.role_id LEFT JOIN sys_role_permission rp ON u.role_id = rp.role_id LEFT JOIN sys_permission p ON rp.permission_id = p.id AND rp.delete_status = '1' WHERE u.username = ? AND u.delete_status = '1' 
+2020-04-11 10:41:48.420 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-1] - ==> Parameters: admin(String)
+2020-04-11 10:41:48.424 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-1] - <==      Total: 1
+2020-04-11 10:41:48.426 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-1] - ==>  Preparing: SELECT p.menu_code menuCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 10:41:48.427 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-1] - ==> Parameters: 
+2020-04-11 10:41:48.431 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-1] - <==      Total: 18
+2020-04-11 10:41:48.432 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-1] - ==>  Preparing: SELECT p.permission_code permissionCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 10:41:48.433 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-1] - ==> Parameters: 
+2020-04-11 10:41:48.438 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-1] - <==      Total: 18
+2020-04-11 10:41:49.013 INFO  --- [UserRealm.java:36][http-nio-8080-exec-2] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 10:41:49.014 INFO  --- [UserRealm.java:37][http-nio-8080-exec-2] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 10:41:49.015 INFO  --- [UserRealm.java:36][http-nio-8080-exec-2] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 10:41:49.016 INFO  --- [UserRealm.java:37][http-nio-8080-exec-2] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 10:41:49.020 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==>  Preparing: SELECT count(*) FROM absent 
+2020-04-11 10:41:49.022 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==> Parameters: 
+2020-04-11 10:41:49.024 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - <==      Total: 1
+2020-04-11 10:41:49.026 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==>  Preparing: SELECT w.id id, w.user_id userID, w.absent_time dormTime, w.message message FROM absent w ORDER BY w.id DESC LIMIT ?, ? 
+2020-04-11 10:41:49.027 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==> Parameters: 0(Integer), 50(Integer)
+2020-04-11 10:41:49.029 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - <==      Total: 1
+2020-04-11 10:41:49.033 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==>  Preparing: INSERT INTO sys_log VALUES (?,?,?,?,?,?,?) 
+2020-04-11 10:41:49.035 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==> Parameters: 0(Integer), admin(String), 2020-04-11 10:41:49.03(Timestamp), 缺寝列表点击(String), 执行了com.dsl.example.controller.ManagerController类的listAbsent方法(String), SELECT
+               w.id                                      id,
+               w.user_id                                 userID,
+               w.absent_time                            dormTime,
+               w.message                                 message
+           FROM absent w ORDER BY w.id DESC LIMIT ?, ?(String), Popeye/192.168.240.1(String)
+2020-04-11 10:41:49.038 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - <==    Updates: 1
+2020-04-11 10:42:12.161 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - ==>  Preparing: SELECT u.id userId, u.nickname nickname, u.role_id roleId, r.role_name roleName, p.menu_code menuCode, p.permission_code permissionCode FROM sys_user u LEFT JOIN sys_role r ON r.id = u.role_id LEFT JOIN sys_role_permission rp ON u.role_id = rp.role_id LEFT JOIN sys_permission p ON rp.permission_id = p.id AND rp.delete_status = '1' WHERE u.username = ? AND u.delete_status = '1' 
+2020-04-11 10:42:12.162 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - ==> Parameters: admin(String)
+2020-04-11 10:42:12.171 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - <==      Total: 1
+2020-04-11 10:42:12.173 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - ==>  Preparing: SELECT p.menu_code menuCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 10:42:12.174 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - ==> Parameters: 
+2020-04-11 10:42:12.177 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - <==      Total: 18
+2020-04-11 10:42:12.178 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - ==>  Preparing: SELECT p.permission_code permissionCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 10:42:12.179 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - ==> Parameters: 
+2020-04-11 10:42:12.182 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - <==      Total: 18
+2020-04-11 10:42:12.653 INFO  --- [UserRealm.java:36][http-nio-8080-exec-3] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 10:42:12.654 INFO  --- [UserRealm.java:37][http-nio-8080-exec-3] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 10:42:12.656 INFO  --- [UserRealm.java:36][http-nio-8080-exec-3] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 10:42:12.657 INFO  --- [UserRealm.java:37][http-nio-8080-exec-3] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 10:42:12.658 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==>  Preparing: SELECT count(*) FROM absent 
+2020-04-11 10:42:12.659 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==> Parameters: 
+2020-04-11 10:42:12.661 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - <==      Total: 1
+2020-04-11 10:42:12.662 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==>  Preparing: SELECT w.id id, w.user_id userID, w.absent_time dormTime, w.message message FROM absent w ORDER BY w.id DESC LIMIT ?, ? 
+2020-04-11 10:42:12.663 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==> Parameters: 0(Integer), 50(Integer)
+2020-04-11 10:42:12.665 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - <==      Total: 1
+2020-04-11 10:42:12.669 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==>  Preparing: INSERT INTO sys_log VALUES (?,?,?,?,?,?,?) 
+2020-04-11 10:42:12.671 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==> Parameters: 0(Integer), admin(String), 2020-04-11 10:42:12.666(Timestamp), 缺寝列表点击(String), 执行了com.dsl.example.controller.ManagerController类的listAbsent方法(String), SELECT
+               w.id                                      id,
+               w.user_id                                 userID,
+               w.absent_time                            dormTime,
+               w.message                                 message
+           FROM absent w ORDER BY w.id DESC LIMIT ?, ?(String), Popeye/192.168.240.1(String)
+2020-04-11 10:42:12.673 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - <==    Updates: 1
+2020-04-11 11:10:39.043 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - ==>  Preparing: SELECT u.id userId, u.nickname nickname, u.role_id roleId, r.role_name roleName, p.menu_code menuCode, p.permission_code permissionCode FROM sys_user u LEFT JOIN sys_role r ON r.id = u.role_id LEFT JOIN sys_role_permission rp ON u.role_id = rp.role_id LEFT JOIN sys_permission p ON rp.permission_id = p.id AND rp.delete_status = '1' WHERE u.username = ? AND u.delete_status = '1' 
+2020-04-11 11:10:39.047 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - ==> Parameters: admin(String)
+2020-04-11 11:10:39.052 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - <==      Total: 1
+2020-04-11 11:10:39.053 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - ==>  Preparing: SELECT p.menu_code menuCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 11:10:39.054 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - ==> Parameters: 
+2020-04-11 11:10:39.057 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - <==      Total: 18
+2020-04-11 11:10:39.058 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - ==>  Preparing: SELECT p.permission_code permissionCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 11:10:39.060 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - ==> Parameters: 
+2020-04-11 11:10:39.063 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-5] - <==      Total: 18
+2020-04-11 11:10:39.526 INFO  --- [UserRealm.java:36][http-nio-8080-exec-6] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 11:10:39.526 INFO  --- [UserRealm.java:37][http-nio-8080-exec-6] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 11:10:39.528 INFO  --- [UserRealm.java:36][http-nio-8080-exec-6] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 11:10:39.529 INFO  --- [UserRealm.java:37][http-nio-8080-exec-6] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 11:10:39.530 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - ==>  Preparing: SELECT count(*) FROM absent 
+2020-04-11 11:10:39.531 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - ==> Parameters: 
+2020-04-11 11:10:39.532 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - <==      Total: 1
+2020-04-11 11:10:39.534 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - ==>  Preparing: SELECT w.id id, w.user_id userID, w.absent_time dormTime, w.message message FROM absent w ORDER BY w.id DESC LIMIT ?, ? 
+2020-04-11 11:10:39.535 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - ==> Parameters: 0(Integer), 50(Integer)
+2020-04-11 11:10:39.537 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - <==      Total: 1
+2020-04-11 11:10:39.540 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - ==>  Preparing: INSERT INTO sys_log VALUES (?,?,?,?,?,?,?) 
+2020-04-11 11:10:39.542 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - ==> Parameters: 0(Integer), admin(String), 2020-04-11 11:10:39.537(Timestamp), 缺寝列表点击(String), 执行了com.dsl.example.controller.ManagerController类的listAbsent方法(String), SELECT
+               w.id                                      id,
+               w.user_id                                 userID,
+               w.absent_time                            dormTime,
+               w.message                                 message
+           FROM absent w ORDER BY w.id DESC LIMIT ?, ?(String), Popeye/192.168.240.1(String)
+2020-04-11 11:10:39.544 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-6] - <==    Updates: 1
+2020-04-11 14:21:01.236 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - ==>  Preparing: SELECT u.id userId, u.username username, u.password password, u.nickname nickName FROM sys_user u WHERE u.username = ? AND u.password = ? AND u.delete_status = '1' 
+2020-04-11 14:21:01.237 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - ==> Parameters: admin(String), 123456(String)
+2020-04-11 14:21:01.239 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - <==      Total: 1
+2020-04-11 14:21:01.240 INFO  --- [LoginLogAspect.java:46][http-nio-8080-exec-9] - admin successful login at 2020-04-11 14:21:01.24
+2020-04-11 14:21:01.242 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - ==>  Preparing: INSERT INTO sys_log VALUES (?,?,?,?,?,?,?) 
+2020-04-11 14:21:01.243 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - ==> Parameters: 0(Integer), admin(String), 2020-04-11 14:21:01.24(Timestamp), 登录(String), 执行了com.dsl.example.controller.LoginController类的authLogin方法(String), null, Popeye/192.168.240.1(String)
+2020-04-11 14:21:01.289 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-9] - <==    Updates: 1
+2020-04-11 14:21:01.487 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - ==>  Preparing: SELECT u.id userId, u.nickname nickname, u.role_id roleId, r.role_name roleName, p.menu_code menuCode, p.permission_code permissionCode FROM sys_user u LEFT JOIN sys_role r ON r.id = u.role_id LEFT JOIN sys_role_permission rp ON u.role_id = rp.role_id LEFT JOIN sys_permission p ON rp.permission_id = p.id AND rp.delete_status = '1' WHERE u.username = ? AND u.delete_status = '1' 
+2020-04-11 14:21:01.488 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - ==> Parameters: admin(String)
+2020-04-11 14:21:01.490 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - <==      Total: 1
+2020-04-11 14:21:01.491 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - ==>  Preparing: SELECT p.menu_code menuCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 14:21:01.492 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - ==> Parameters: 
+2020-04-11 14:21:01.494 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - <==      Total: 18
+2020-04-11 14:21:01.497 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - ==>  Preparing: SELECT p.permission_code permissionCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 14:21:01.497 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - ==> Parameters: 
+2020-04-11 14:21:01.498 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-8] - <==      Total: 18
+2020-04-11 14:21:10.061 INFO  --- [UserRealm.java:36][http-nio-8080-exec-10] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 14:21:10.063 INFO  --- [UserRealm.java:37][http-nio-8080-exec-10] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 14:21:10.066 INFO  --- [UserRealm.java:36][http-nio-8080-exec-10] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 14:21:10.067 INFO  --- [UserRealm.java:37][http-nio-8080-exec-10] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 14:21:10.070 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - ==>  Preparing: SELECT count(*) FROM absent 
+2020-04-11 14:21:10.071 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - ==> Parameters: 
+2020-04-11 14:21:10.072 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - <==      Total: 1
+2020-04-11 14:21:10.074 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - ==>  Preparing: SELECT w.id id, w.user_id userID, w.absent_time dormTime, w.message message FROM absent w ORDER BY w.id DESC LIMIT ?, ? 
+2020-04-11 14:21:10.076 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - ==> Parameters: 0(Integer), 50(Integer)
+2020-04-11 14:21:10.078 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - <==      Total: 1
+2020-04-11 14:21:10.083 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - ==>  Preparing: INSERT INTO sys_log VALUES (?,?,?,?,?,?,?) 
+2020-04-11 14:21:10.085 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - ==> Parameters: 0(Integer), admin(String), 2020-04-11 14:21:10.08(Timestamp), 缺寝列表点击(String), 执行了com.dsl.example.controller.ManagerController类的listAbsent方法(String), SELECT
+               w.id                                      id,
+               w.user_id                                 userID,
+               w.absent_time                            dormTime,
+               w.message                                 message
+           FROM absent w ORDER BY w.id DESC LIMIT ?, ?(String), Popeye/192.168.240.1(String)
+2020-04-11 14:21:10.133 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-10] - <==    Updates: 1
+2020-04-11 14:21:36.832 INFO  --- [UserRealm.java:36][http-nio-8080-exec-1] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 14:21:36.832 INFO  --- [UserRealm.java:37][http-nio-8080-exec-1] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 14:21:36.833 INFO  --- [UserRealm.java:36][http-nio-8080-exec-1] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 14:21:36.834 INFO  --- [UserRealm.java:37][http-nio-8080-exec-1] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 14:21:36.836 WARN  --- [AbstractHandlerExceptionResolver.java:194][http-nio-8080-exec-1] - Resolved [com.dsl.example.config.exception.CommonJsonException]
+2020-04-11 14:24:21.019 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==>  Preparing: SELECT u.id userId, u.nickname nickname, u.role_id roleId, r.role_name roleName, p.menu_code menuCode, p.permission_code permissionCode FROM sys_user u LEFT JOIN sys_role r ON r.id = u.role_id LEFT JOIN sys_role_permission rp ON u.role_id = rp.role_id LEFT JOIN sys_permission p ON rp.permission_id = p.id AND rp.delete_status = '1' WHERE u.username = ? AND u.delete_status = '1' 
+2020-04-11 14:24:21.021 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==> Parameters: admin(String)
+2020-04-11 14:24:21.025 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - <==      Total: 1
+2020-04-11 14:24:21.026 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==>  Preparing: SELECT p.menu_code menuCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 14:24:21.027 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==> Parameters: 
+2020-04-11 14:24:21.030 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - <==      Total: 18
+2020-04-11 14:24:21.031 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==>  Preparing: SELECT p.permission_code permissionCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 14:24:21.032 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==> Parameters: 
+2020-04-11 14:24:21.035 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - <==      Total: 18
+2020-04-11 14:24:21.530 INFO  --- [UserRealm.java:36][http-nio-8080-exec-4] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 14:24:21.530 INFO  --- [UserRealm.java:37][http-nio-8080-exec-4] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 14:24:21.531 INFO  --- [UserRealm.java:36][http-nio-8080-exec-4] - permission的值为:{"menuList":["role","manager","log","prj","user"],"roleId":1,"nickname":"管理员1号","roleName":"管理员","permissionList":["pj:list","absent:list","user:list","user:add","role:update","absent:select","pj:select","user:update","log:list","role:add","absent:delete","pj:add","pj:delete","absent:add","role:list","role:delete","absent:update","pj:update"],"userId":10001}
+2020-04-11 14:24:21.532 INFO  --- [UserRealm.java:37][http-nio-8080-exec-4] - 本用户权限为:[pj:list, absent:list, user:list, user:add, role:update, absent:select, pj:select, user:update, log:list, role:add, absent:delete, pj:add, pj:delete, absent:add, role:list, role:delete, absent:update, pj:update]
+2020-04-11 14:24:21.533 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - ==>  Preparing: SELECT count(*) FROM absent 
+2020-04-11 14:24:21.534 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - ==> Parameters: 
+2020-04-11 14:24:21.535 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - <==      Total: 1
+2020-04-11 14:24:21.536 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - ==>  Preparing: SELECT w.id id, w.user_id userID, w.absent_time dormTime, w.message message FROM absent w ORDER BY w.id DESC LIMIT ?, ? 
+2020-04-11 14:24:21.537 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - ==> Parameters: 0(Integer), 50(Integer)
+2020-04-11 14:24:21.540 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - <==      Total: 1
+2020-04-11 14:24:21.544 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - ==>  Preparing: INSERT INTO sys_log VALUES (?,?,?,?,?,?,?) 
+2020-04-11 14:24:21.546 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - ==> Parameters: 0(Integer), admin(String), 2020-04-11 14:24:21.541(Timestamp), 缺寝列表点击(String), 执行了com.dsl.example.controller.ManagerController类的listAbsent方法(String), SELECT
+               w.id                                      id,
+               w.user_id                                 userID,
+               w.absent_time                            dormTime,
+               w.message                                 message
+           FROM absent w ORDER BY w.id DESC LIMIT ?, ?(String), Popeye/192.168.240.1(String)
+2020-04-11 14:24:21.574 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - <==    Updates: 1
