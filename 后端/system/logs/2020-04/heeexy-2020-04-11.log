@@ -1159,3 +1159,24 @@ java.lang.NullPointerException: null
                w.message                                 message
            FROM absent w ORDER BY w.id DESC LIMIT ?, ?(String), Popeye/192.168.240.1(String)
 2020-04-11 14:24:21.574 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-4] - <==    Updates: 1
+2020-04-11 17:15:24.460 INFO  --- [StartupInfoLogger.java:50][restartedMain] - Starting MyApplication on Popeye with PID 14360 (started by Administrator in C:\Users\Administrator\Desktop\毕业设计\软件过程管理系统\后端\system)
+2020-04-11 17:15:24.466 INFO  --- [SpringApplication.java:675][restartedMain] - No active profile set, falling back to default profiles: default
+2020-04-11 17:15:29.691 INFO  --- [StartupInfoLogger.java:59][restartedMain] - Started MyApplication in 6.124 seconds (JVM running for 9.304)
+2020-04-11 17:25:02.240 INFO  --- [HikariDataSource.java:110][http-nio-8080-exec-2] - HikariPool-1 - Starting...
+2020-04-11 17:25:02.403 INFO  --- [HikariDataSource.java:123][http-nio-8080-exec-2] - HikariPool-1 - Start completed.
+2020-04-11 17:25:02.412 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==>  Preparing: SELECT u.id userId, u.username username, u.password password, u.nickname nickName FROM sys_user u WHERE u.username = ? AND u.password = ? AND u.delete_status = '1' 
+2020-04-11 17:25:02.459 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==> Parameters: admin(String), 123456(String)
+2020-04-11 17:25:02.489 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - <==      Total: 1
+2020-04-11 17:25:02.511 INFO  --- [LoginLogAspect.java:46][http-nio-8080-exec-2] - admin successful login at 2020-04-11 17:25:02.51
+2020-04-11 17:25:02.540 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==>  Preparing: INSERT INTO sys_log VALUES (?,?,?,?,?,?,?) 
+2020-04-11 17:25:02.546 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - ==> Parameters: 0(Integer), admin(String), 2020-04-11 17:25:02.517(Timestamp), 登录(String), 执行了com.dsl.example.controller.LoginController类的authLogin方法(String), null, Popeye/192.168.240.1(String)
+2020-04-11 17:25:02.596 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-2] - <==    Updates: 1
+2020-04-11 17:25:02.756 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==>  Preparing: SELECT u.id userId, u.nickname nickname, u.role_id roleId, r.role_name roleName, p.menu_code menuCode, p.permission_code permissionCode FROM sys_user u LEFT JOIN sys_role r ON r.id = u.role_id LEFT JOIN sys_role_permission rp ON u.role_id = rp.role_id LEFT JOIN sys_permission p ON rp.permission_id = p.id AND rp.delete_status = '1' WHERE u.username = ? AND u.delete_status = '1' 
+2020-04-11 17:25:02.757 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==> Parameters: admin(String)
+2020-04-11 17:25:02.765 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - <==      Total: 1
+2020-04-11 17:25:02.794 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==>  Preparing: SELECT p.menu_code menuCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 17:25:02.795 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==> Parameters: 
+2020-04-11 17:25:02.798 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - <==      Total: 18
+2020-04-11 17:25:02.801 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==>  Preparing: SELECT p.permission_code permissionCode FROM sys_permission p ORDER BY p.id 
+2020-04-11 17:25:02.801 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - ==> Parameters: 
+2020-04-11 17:25:02.804 DEBUG --- [BaseJdbcLogger.java:159][http-nio-8080-exec-3] - <==      Total: 18
